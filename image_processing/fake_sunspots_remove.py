@@ -67,7 +67,7 @@ for image_path in image_paths:
 
         try:
             # threshold = min(int(500 / 362.6 / cos(lon_rad)), int(1500 / 362.6 / cos(lat_rad)))
-            threshold = 4.14 * int(cos(lon_rad))*int(cos(lat_rad))
+            threshold = 4.14 * cos(lon_rad)*cos(lat_rad)
         except ZeroDivisionError:
             msg = f"⚠️ 区域 {i + 1}：经纬度接近 ±90°，跳过该区域\n"
             print(msg)
@@ -99,3 +99,4 @@ for image_path in image_paths:
 
 log_file.close()
 print(f"所有区域信息已保存到 {log_file_path}")
+
